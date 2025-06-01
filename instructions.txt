@@ -1,7 +1,7 @@
 PHP, HTML, CSS 
-1) User enters a login credentials user name, password, hostname and Ip is stored in the database token is generated and stored as cookies fetch index.php (application) from the server.
+1) User enters a login credentials user name, password, hostname and Ip every thing encrypted is stored in the database JWT token is generated based on hostname and stored as cookies fetch index.php (application) from the server.
 2) User log out token is deactivated.
-3) Token Credits counter
+3) Credits token counter
 4) User clicks on file upload red box; & upload blue box; & submit; & like button; the session is counted as successful.
 
 
