@@ -73,18 +73,7 @@
                 if ($user['email_verified'] == 1) {
                     session_start();
                     $_SESSION['user_id'] = $user['id'];
-                    
-                    // Generate JWT token
-                    $jwt_secret = $_ENV['JWT_SECRET'];
-                    $payload = [
-                        'user_id' => $user['id'],
-                        'email' => $user['email'],
-                        'exp' => time() + (60 * 60) // 1 hour expiration
-                    ];
-                    
-                    $token = JWT::encode($payload, $jwt_secret, 'HS256');
-                    $_SESSION['token'] = $token;
-                    
+                    $_SESSION['is_admin'] = $user['is_admin']; // Add this line
                     header("Location: dashboard.php");
                     exit();
                 } else {
