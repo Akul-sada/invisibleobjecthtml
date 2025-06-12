@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey</title>
+    <style>
+      .survey-overlay {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #333333; /* Added this line */
+      }
+
+      .survey-content {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .icon-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        padding: 1rem;
+        border-radius: 8px;
+        transition: transform 0.2s;
+      }
+
+      .icon-item:hover {
+        transform: scale(1.1);
+        background-color: #444444; /* Changed from #f0f0f0 to darker grey */
+      }
+
+      ion-icon {
+        font-size: 4rem;
+        color: #ffffff; /* Changed from #333 to #ffffff */
+      }
+
+      .icon-label {
+        margin-top: 0.5rem;
+        font-size: 1.2rem;
+        color: #ffffff; /* Changed from #666 to #ffffff */
+      }
+
+      .selected {
+        background-color: #555555; /* Changed from #e0e0e0 to darker grey */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="survey-overlay">
+      <div class="survey-content">
+        <div class="icon-item" onclick="selectMood('happy')">
+          <ion-icon name="happy-outline"></ion-icon>
+          <span class="icon-label">Happy</span>
+        </div>
+        <div class="icon-item" onclick="selectMood('sad')">
+          <ion-icon name="sad-outline"></ion-icon>
+          <span class="icon-label">Sad</span>
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script>
+      function selectMood(mood) {
+        // Remove selected class from all icons
+        document.querySelectorAll(".icon-item").forEach((item) => {
+          item.classList.remove("selected");
+        });
+
+        // Add selected class to clicked icon
+        const selectedIcon = document.querySelector(
+          `[onclick="selectMood('${mood}')"]`
+        );
+        selectedIcon.classList.add("selected");
+
+        // You can handle the selected mood here
+        console.log("Selected mood:", mood);
+      }
+    </script>
+  </body>
+</html>
